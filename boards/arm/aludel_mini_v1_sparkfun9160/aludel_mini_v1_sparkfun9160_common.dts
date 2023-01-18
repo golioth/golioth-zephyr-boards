@@ -152,6 +152,16 @@
 	pinctrl-names = "default", "sleep";
 };
 
+&spi2 {
+	compatible = "nordic,nrf-spim";
+	status = "okay";
+	cs-gpios = <&gpio0 30 GPIO_ACTIVE_LOW>,
+				<&gpio0 0 GPIO_ACTIVE_LOW>;
+	pinctrl-0 = <&spi2_default>;
+	pinctrl-1 = <&spi2_sleep>;
+	pinctrl-names = "default", "sleep";
+};
+
 &spi3 {
 	compatible = "nordic,nrf-spim";
 	status = "okay";

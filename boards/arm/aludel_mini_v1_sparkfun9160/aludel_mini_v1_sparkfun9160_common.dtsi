@@ -260,4 +260,4 @@
 };
 
 /* Include partition configuration file */
-#include "aludel_mini_v1_sparkfun9160_partition_conf.dts"
+#include "aludel_mini_v1_sparkfun9160_partition_conf.dtsi"

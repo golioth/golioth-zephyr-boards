@@ -7,7 +7,7 @@
 
 /dts-v1/;
 #include <nordic/nrf9160_sica.dtsi>
-#include "aludel_mini_v1_sparkfun9160_common.dts"
+#include "aludel_mini_v1_sparkfun9160_common.dtsi"
 
 / {
 	chosen {

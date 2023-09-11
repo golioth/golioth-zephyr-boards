@@ -7,6 +7,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+
+- Disable external NOR flash (`CONFIG_SPI_NOR=n`) on the `aludel_mini_v1_sparkfun9160 board` to fix a conflict with the SPI3 peripheral.
+
 ## [1.0.1] - 2023-09-01
 
 ### Fixed

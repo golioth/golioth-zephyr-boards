@@ -1,0 +1,188 @@
+/*
+ * Copyright (c) 2018-2020 Nordic Semiconductor ASA
+ * Copyright (c) 2023 Golioth, Inc.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include "aludel_elixir_v1_common-pinctrl.dtsi"
+
+/ {
+	model = "Golioth Aludel Elixir v1";
+	compatible = "golioth,aludel-elixir-v1";
+
+	chosen {
+		zephyr,console = &uart0;
+		zephyr,shell-uart = &uart0;
+		zephyr,uart-mcumgr = &uart0;
+		nordic,modem-trace-uart = &uart1;
+	};
+
+	buttons {
+		compatible = "gpio-keys";
+
+		button0: button_0 {
+			gpios = <&gpio0 12 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+		};
+
+		user_btn_n: user_btn_n {
+			gpios = <&gpio0 3 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+		};
+	};
+
+	buzzer: buzzer {
+		compatible = "pwm-buzzer";
+		pwms = <&pwm0 0 PWM_HZ(440) PWM_POLARITY_NORMAL>;
+	};
+
+	reg_mikrobus_3v3: reg-mikrobus-3v3 {
+		compatible = "regulator-fixed";
+		regulator-name = "reg-mikrobus-3v3";
+		enable-gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;
+		regulator-boot-on;
+	};
+
+	reg_mikrobus_5v: reg-mikrobus-5v {
+		compatible = "regulator-fixed";
+		regulator-name = "reg-mikrobus-5v";
+		enable-gpios = <&gpio0 4 GPIO_ACTIVE_HIGH>;
+		regulator-boot-on;
+	};
+
+	aliases {
+		sw0 = &button0;
+		sw1 = &user_btn_n;
+		mcuboot-button0 = &button0;
+		watchdog0 = &wdt0;
+		click-i2c = &i2c2;
+		spi-flash0 = &w25q32jv;
+	};
+};
+
+esp_at_serial: &uart0 {};
+qwiic_i2c: &i2c2 {};
+
+&adc {
+	status = "okay";
+};
+
+&gpiote {
+	status = "okay";
+};
+
+&gpio0 {
+	status = "okay";
+};
+
+&uart0 {
+	status = "okay";
+	current-speed = <115200>;
+	pinctrl-0 = <&usb_serial_uart_default>;
+	pinctrl-1 = <&usb_serial_uart_sleep>;
+	pinctrl-names = "default", "sleep";
+};
+
+&i2c2 {
+	pinctrl-0 = <&mikrobus_i2c_default>;
+	pinctrl-1 = <&mikrobus_i2c_sleep>;
+	pinctrl-names = "default", "sleep";
+
+	pcf85063a@51 {
+		compatible = "nxp,pcf85063a";
+		reg = <0x51>;
+	};
+
+	max17262@36 {
+		compatible = "maxim,max17262";
+		reg = <0x36>;
+		design-voltage = <4200>;
+		desired-voltage = <3700>;
+		desired-charging-current = <800>;
+		design-cap = <850>;
+		empty-voltage = <3300>;
+		recovery-voltage = <3880>;
+		charge-voltage = <4200>;
+		status = "okay";
+	};
+};
+
+&spi3 {
+	w25q32jv: w25q32jv@0 {
+		compatible = "jedec,spi-nor";
+		status = "disabled";
+		reg = <0>;
+		spi-max-frequency = <40000000>;
+		wp-gpios = <&gpio0 8 GPIO_ACTIVE_LOW>;
+		hold-gpios = <&gpio0 10 GPIO_ACTIVE_LOW>;
+		size = <0x2000000>;
+		has-dpd;
+		t-enter-dpd = <3000>;
+		t-exit-dpd = <30000>;
+		jedec-id = [ ef 40 16  ];
+	};
+};
+
+&pwm0 {
+	status = "okay";
+	pinctrl-0 = <&buzzer_pwm0_default>;
+	pinctrl-1 = <&buzzer_pwm0_sleep>;
+	pinctrl-names = "default", "sleep";
+};
+
+&flash0 {
+	partitions {
+		compatible = "fixed-partitions";
+		#address-cells = <1>;
+		#size-cells = <1>;
+
+		boot_partition: partition@0 {
+			label = "mcuboot";
+			reg = <0x00000000 0x10000>;
+		};
+
+		slot0_partition: partition@10000 {
+			label = "image-0";
+		};
+
+		slot0_ns_partition: partition@50000 {
+			label = "image-0-nonsecure";
+		};
+
+		slot1_partition: partition@80000 {
+			label = "image-1";
+		};
+
+		slot1_ns_partition: partition@c0000 {
+			label = "image-1-nonsecure";
+		};
+
+		/* 0xf0000 to 0xf7fff reserved for TF-M partitions */
+		storage_partition: partition@f8000 {
+			label = "storage";
+			reg = <0x000f8000 0x00008000>;
+		};
+	};
+};
+
+/ {
+	reserved-memory {
+		#address-cells = <1>;
+		#size-cells = <1>;
+		ranges;
+
+		sram0_s: image_s@20000000 {
+			/* Secure image memory */
+		};
+
+		sram0_modem: image_modem@20016000 {
+			/* Modem (shared) memory */
+		};
+
+		sram0_ns: image_ns@20020000 {
+			/* Non-Secure image memory */
+		};
+	};
+};
+
+/* Include partition configuration file */
+#include "aludel_elixir_v1_partition_conf.dtsi"

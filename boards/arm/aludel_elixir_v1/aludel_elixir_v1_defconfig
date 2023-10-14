@@ -1,0 +1,29 @@
+# Copyright (c) 2023 Golioth, Inc.
+# SPDX-License-Identifier: Apache-2.0
+
+CONFIG_SOC_SERIES_NRF91X=y
+CONFIG_SOC_NRF9160_SICA=y
+CONFIG_BOARD_ALUDEL_ELIXIR_V1=y
+
+# Enable MPU
+CONFIG_ARM_MPU=y
+
+# Enable hardware stack protection
+CONFIG_HW_STACK_PROTECTION=y
+
+# Enable TrustZone-M
+CONFIG_ARM_TRUSTZONE_M=y
+
+# Enable GPIO
+CONFIG_GPIO=y
+
+# Enable UART console
+CONFIG_SERIAL=y
+CONFIG_CONSOLE=y
+CONFIG_UART_CONSOLE=y
+
+# Enable pin controller drivers
+CONFIG_PINCTRL=y
+
+# Enable power regulator control
+CONFIG_REGULATOR=y

@@ -16,7 +16,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Disable external NOR flash (`CONFIG_SPI_NOR=n`) on the `aludel_mini_v1_sparkfun9160 board` to fix a conflict with the SPI3 peripheral.
+- Disable external NOR flash (`CONFIG_SPI_NOR=n`) on the `aludel_mini_v1_sparkfun9160` board to fix a conflict with the SPI3 peripheral.
+- Enable internal I2C pull-ups for I2C1 peripheral pins on the `aludel_mini_v1_sparkfun9160` board.
 
 ## [1.0.1] - 2023-09-01
 

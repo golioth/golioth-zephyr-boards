@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add .editorconfig and .clang-format.
+
 ### Fixed
 
 - Suppress `unique_unit_address_if_enabled` warnings for the `aludel_mini_v1_sparkfun9160` board.

@@ -77,7 +77,7 @@
 				<18 0 &gpio0 2 0>,	/* PWM1 */
 				<19 0 &gpio0 3 0>,	/* PWM0 */
 				<20 0 &gpio0 4 0>,	/* PWM1 */
-				/* 11 not connected */
+				<11 0 &gpio0 31 0>,	/* NRF_PS_EN */
 				<10 0 &gpio0 24 0>,	/* TX */
 				<9 0 &gpio0 23 0>,	/* RX */
 				<8 0 &gpio0 22 0>,	/* MISO */

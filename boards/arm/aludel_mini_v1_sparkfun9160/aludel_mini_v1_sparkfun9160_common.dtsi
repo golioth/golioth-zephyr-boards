@@ -90,11 +90,62 @@
 				<19 0 &gpio0 3 0>,	/* D12 (PWM0) */
 				<20 0 &gpio0 4 0>;	/* D13 (PWM1) */		
 	};
+
+	mikrobus_header_1: mikrobus-connector-1 {
+		compatible = "mikro-bus";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map =	<0 0 &feather_header 1 0>,	/* AN1 */
+				<1 0 &feather_header 20 0>,	/* RST1 */
+				<2 0 &feather_header 15 0>,	/* CS1 */
+				<3 0 &feather_header 6 0>,	/* SCK */
+				<4 0 &feather_header 8 0>,	/* MISO */
+				<5 0 &feather_header 7 0>,	/* MOSI */
+								/* +3.3V */
+								/* GND */
+				<6 0 &feather_header 3 0>,	/* PWM1 */
+				<7 0 &feather_header 17 0>,	/* INT1 */
+				<8 0 &feather_header 9 0>,	/* RX */
+				<9 0 &feather_header 10 0>,	/* TX */
+				<10 0 &feather_header 13 0>,	/* SCL */
+				<11 0 &feather_header 12 0>;	/* SDA */
+								/* +5V */
+								/* GND */
+	};
+
+	mikrobus_header_2: mikrobus-connector-2 {
+		compatible = "mikro-bus";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map =	<0 0 &feather_header 2 0>,	/* AN2 */
+				<1 0 &feather_header 5 0>,	/* RST2 */
+				<2 0 &feather_header 16 0>,	/* CS2 */
+				<3 0 &feather_header 6 0>,	/* SCK */
+				<4 0 &feather_header 8 0>,	/* MISO */
+				<5 0 &feather_header 7 0>,	/* MOSI */
+								/* +3.3V */
+								/* GND */
+				<6 0 &feather_header 4 0>,	/* PWM2 */
+				<7 0 &feather_header 18 0>,	/* INT2 */
+				<8 0 &feather_header 9 0>,	/* RX */
+				<9 0 &feather_header 10 0>,	/* TX */
+				<10 0 &feather_header 13 0>,	/* SCL */
+				<11 0 &feather_header 12 0>;	/* SDA */
+								/* +5V */
+								/* GND */
+	};
 };
 
 feather_serial: &uart2 {};
 feather_i2c: &i2c1 {};
 feather_spi: &spi2 {};
+
+mikrobus_serial: &uart2 {};
+mikrobus_i2c: &i2c1 {};
+mikrobus_spi: &spi2 {};
+mikrobus_header: &mikrobus_header_1 {};
 
 &adc {
 	status = "okay";

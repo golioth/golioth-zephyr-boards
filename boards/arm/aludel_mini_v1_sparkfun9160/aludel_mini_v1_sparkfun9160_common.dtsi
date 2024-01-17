@@ -92,6 +92,10 @@
 	};
 };
 
+feather_serial: &uart2 {};
+feather_i2c: &i2c1 {};
+feather_spi: &spi2 {};
+
 &adc {
 	status = "okay";
 };

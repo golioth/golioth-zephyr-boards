@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add `NRF_PS_EN` to feather connector GPIO nexus for the `aludel_mini_v1_sparkfun9160` board.
 - Add `feather_{serial,i2c,spi}` node labels to `aludel_mini_v1_sparkfun9160` board.
 - Add mikroBUS connector GPIO nexus nodes to `aludel_mini_v1_sparkfun9160` board.
+- Add `nrf9160dk_nrf9160` overlays for `arduino_uno_click` shield.
 
 ### Fixed
 

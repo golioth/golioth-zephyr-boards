@@ -1,7 +1,7 @@
 # Copyright (c) 2023 Golioth, Inc.
 # SPDX-License-Identifier: Apache-2.0
 
-identifier: aludel_elixir_v1
+identifier: aludel_elixir
 name: Golioth-Aludel-Elixir-v1
 type: mcu
 arch: arm

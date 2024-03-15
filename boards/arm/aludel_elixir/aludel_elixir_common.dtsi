@@ -5,11 +5,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#include "aludel_elixir_v1_common-pinctrl.dtsi"
+#include "aludel_elixir_common-pinctrl.dtsi"
 
 / {
-	model = "Golioth Aludel Elixir v1";
-	compatible = "golioth,aludel-elixir-v1";
+	model = "Golioth Aludel Elixir";
+	compatible = "golioth,aludel-elixir";
 
 	chosen {
 		zephyr,console = &uart0;
@@ -185,4 +185,4 @@ qwiic_i2c: &i2c2 {};
 };
 
 /* Include partition configuration file */
-#include "aludel_elixir_v1_partition_conf.dtsi"
+#include "aludel_elixir_partition_conf.dtsi"

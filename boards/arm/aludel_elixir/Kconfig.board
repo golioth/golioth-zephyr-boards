@@ -4,10 +4,10 @@
 
 if SOC_NRF9160_SICA
 
-config BOARD_ALUDEL_ELIXIR_V1
-	bool "Golioth Aludel Elixir v1"
+config BOARD_ALUDEL_ELIXIR
+	bool "Golioth Aludel Elixir"
 
-config BOARD_ALUDEL_ELIXIR_V1_NS
-	bool "Golioth Aludel Elixir v1 non-secure"
+config BOARD_ALUDEL_ELIXIR_NS
+	bool "Golioth Aludel Elixir non-secure"
 
 endif # SOC_NRF9160_SICA

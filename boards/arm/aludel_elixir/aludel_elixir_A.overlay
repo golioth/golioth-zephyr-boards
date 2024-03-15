@@ -4,4 +4,4 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#include "aludel_elixir_v1_common_B.dtsi"
+#include "aludel_elixir_common_A.dtsi"

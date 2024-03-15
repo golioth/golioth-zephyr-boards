@@ -7,7 +7,7 @@
 
 /dts-v1/;
 #include <nordic/nrf9160ns_sica.dtsi>
-#include "aludel_elixir_v1_common.dtsi"
+#include "aludel_elixir_common.dtsi"
 
 / {
 	chosen {

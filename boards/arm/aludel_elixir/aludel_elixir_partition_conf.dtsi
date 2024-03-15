@@ -6,24 +6,24 @@
  */
 
 /*
- * Default Flash planning for aludel_elixir_v1.
+ * Default Flash planning for aludel_elixir.
  *
  * Zephyr build for nRF9160 with ARM TrustZone-M support,
- * implies building Secure and Non-Secure Zephyr images.
- *
- * Secure image will be placed, by default, in flash0
- * (or in slot0, if MCUboot is present).
- * Secure image will use sram0 for system memory.
- *
- * Non-Secure image will be placed in slot0_ns, and use
- * sram0_ns for system memory.
- *
- * Note that the Secure image only requires knowledge of
- * the beginning of the Non-Secure image (not its size).
- */
+  * implies building Secure and Non-Secure Zephyr images.
+  *
+  * Secure image will be placed, by default, in flash0
+  * (or in slot0, if MCUboot is present).
+  * Secure image will use sram0 for system memory.
+  *
+  * Non-Secure image will be placed in slot0_ns, and use
+  * sram0_ns for system memory.
+  *
+  * Note that the Secure image only requires knowledge of
+  * the beginning of the Non-Secure image (not its size).
+  */
 
-&slot0_partition {
-	reg = <0x00010000 0x40000>;
+ &slot0_partition {
+	 reg = <0x00010000 0x40000>;
 };
 
 &slot0_ns_partition {

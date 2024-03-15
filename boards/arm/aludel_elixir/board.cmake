@@ -2,7 +2,7 @@
 # Copyright (c) 2023 Golioth, Inc.
 # SPDX-License-Identifier: Apache-2.0
 
-if(CONFIG_BOARD_ALUDEL_ELIXIR_V1_NS)
+if(CONFIG_BOARD_ALUDEL_ELIXIR_NS)
   set(TFM_PUBLIC_KEY_FORMAT "full")
 endif()
 

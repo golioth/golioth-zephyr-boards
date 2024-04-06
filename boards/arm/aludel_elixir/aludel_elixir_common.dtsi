@@ -46,7 +46,7 @@
 		compatible = "regulator-fixed";
 		regulator-name = "reg-mikrobus-5v";
 		enable-gpios = <&gpio0 4 GPIO_ACTIVE_HIGH>;
-		regulator-boot-on;
+		/* regulator-boot-on; */
 	};
 
 	aliases {

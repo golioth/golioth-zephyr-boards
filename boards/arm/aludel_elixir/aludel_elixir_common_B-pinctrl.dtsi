@@ -6,14 +6,14 @@
 
 &pinctrl {
 	/* UART pins connected to the mikroBUS headers */
-	mikrobus_uart_default: mikrobus-uart-default {
+	uart1_default: uart1-default {
 		group1 {
 			psels = <NRF_PSEL(UART_TX, 0, 24)>,
 				<NRF_PSEL(UART_RX, 0, 23)>;
 		};
 	};
 
-	mikrobus_uart_sleep: mikrobus-uart-sleep {
+	uart1_sleep: uart1-sleep {
 		group1 {
 			psels = <NRF_PSEL(UART_TX, 0, 24)>,
 				<NRF_PSEL(UART_RX, 0, 23)>;

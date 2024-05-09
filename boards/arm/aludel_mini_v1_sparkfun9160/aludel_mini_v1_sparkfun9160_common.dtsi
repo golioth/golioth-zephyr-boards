@@ -139,13 +139,13 @@
 	};
 };
 
-feather_serial: &uart2 {};
-feather_i2c: &i2c1 {};
-feather_spi: &spi2 {};
+feather_serial: &uart1 {};
+feather_i2c: &i2c2 {};
+feather_spi: &spi3 {};
 
-mikrobus_serial: &uart2 {};
-mikrobus_i2c: &i2c1 {};
-mikrobus_spi: &spi2 {};
+mikrobus_serial: &uart1 {};
+mikrobus_i2c: &i2c2 {};
+mikrobus_spi: &spi3 {};
 mikrobus_header: &mikrobus_header_1 {};
 
 &adc {
@@ -169,25 +169,19 @@ mikrobus_header: &mikrobus_header_1 {};
 };
 
 &uart1 {
+	status = "okay";
 	current-speed = <115200>;
 	pinctrl-0 = <&uart1_default>;
 	pinctrl-1 = <&uart1_sleep>;
 	pinctrl-names = "default", "sleep";
 };
 
-&uart2 {
-	current-speed = <115200>;
-	pinctrl-0 = <&uart2_default>;
-	pinctrl-1 = <&uart2_sleep>;
-	pinctrl-names = "default", "sleep";
-};
-
-&i2c1 {
+&i2c2 {
 	compatible = "nordic,nrf-twim";
 	status = "okay";
 
-	pinctrl-0 = <&i2c1_default>;
-	pinctrl-1 = <&i2c1_sleep>;
+	pinctrl-0 = <&i2c2_default>;
+	pinctrl-1 = <&i2c2_sleep>;
 	pinctrl-names = "default", "sleep";
 	pcf85063a@51 {
 		compatible = "nxp,pcf85063a";
@@ -209,34 +203,14 @@ mikrobus_header: &mikrobus_header_1 {};
 	pinctrl-names = "default", "sleep";
 };
 
-&spi2 {
-	compatible = "nordic,nrf-spim";
-	status = "okay";
-	cs-gpios = <&gpio0 30 GPIO_ACTIVE_LOW>, <&gpio0 0 GPIO_ACTIVE_LOW>;
-	pinctrl-0 = <&spi2_default>;
-	pinctrl-1 = <&spi2_sleep>;
-	pinctrl-names = "default", "sleep";
-};
-
 &spi3 {
 	compatible = "nordic,nrf-spim";
 	status = "okay";
-	cs-gpios = <&gpio0 7 GPIO_ACTIVE_LOW>;
+	cs-gpios = <&mikrobus_header_1 2 GPIO_ACTIVE_LOW>, /* CLICK_CS1 */
+	           <&mikrobus_header_2 2 GPIO_ACTIVE_LOW>; /* CLICK_CS2 */
 	pinctrl-0 = <&spi3_default>;
 	pinctrl-1 = <&spi3_sleep>;
 	pinctrl-names = "default", "sleep";
-	w25q32jv: w25q32jv@0 {
-		compatible = "jedec,spi-nor";
-		reg = <0>;
-		spi-max-frequency = <40000000>;
-		wp-gpios = <&gpio0 8 GPIO_ACTIVE_LOW>;
-		hold-gpios = <&gpio0 10 GPIO_ACTIVE_LOW>;
-		size = <0x2000000>;
-		has-dpd;
-		t-enter-dpd = <3000>;
-		t-exit-dpd = <30000>;
-		jedec-id = [ ef 40 16 ];
-	};
 };
 
 &flash0 {

@@ -61,7 +61,6 @@
 		sw1 = &user_button;
 		mcuboot-button0 = &mode_button;
 		watchdog0 = &wdt0;
-		spi-flash0 = &w25q32jv;
 		pwm-buzzer0 = &pwm_buzzer0;
 		rtc0 = &pcf85063a;
 		mikrobus-serial = &mikrobus_serial;
@@ -73,7 +72,12 @@
 	};
 };
 
-esp_at_serial: &uart0 {};
+/* mikroBUS interface node labels */
+mikrobus_serial: &uart1 {};
+mikrobus_i2c: &i2c2 {};
+mikrobus_spi: &spi3 {};
+
+/* QWIIC interface node labels */
 qwiic_i2c: &i2c2 {};
 
 &adc {
@@ -91,14 +95,23 @@ qwiic_i2c: &i2c2 {};
 &uart0 {
 	status = "okay";
 	current-speed = <115200>;
-	pinctrl-0 = <&usb_serial_uart_default>;
-	pinctrl-1 = <&usb_serial_uart_sleep>;
+	pinctrl-0 = <&uart0_default>;
+	pinctrl-1 = <&uart0_sleep>;
+	pinctrl-names = "default", "sleep";
+};
+
+&uart1 {
+	status = "okay";
+	current-speed = <115200>;
+	pinctrl-0 = <&uart1_default>;
+	pinctrl-1 = <&uart1_sleep>;
 	pinctrl-names = "default", "sleep";
 };
 
 &i2c2 {
-	pinctrl-0 = <&mikrobus_i2c_default>;
-	pinctrl-1 = <&mikrobus_i2c_sleep>;
+	status = "okay";
+	pinctrl-0 = <&i2c2_default>;
+	pinctrl-1 = <&i2c2_sleep>;
 	pinctrl-names = "default", "sleep";
 
 	max17262@36 {
@@ -126,25 +139,18 @@ qwiic_i2c: &i2c2 {};
 };
 
 &spi3 {
-	w25q32jv: w25q32jv@0 {
-		compatible = "jedec,spi-nor";
-		status = "disabled";
-		reg = <0>;
-		spi-max-frequency = <40000000>;
-		wp-gpios = <&gpio0 8 GPIO_ACTIVE_LOW>;
-		hold-gpios = <&gpio0 10 GPIO_ACTIVE_LOW>;
-		size = <0x2000000>;
-		has-dpd;
-		t-enter-dpd = <3000>;
-		t-exit-dpd = <30000>;
-		jedec-id = [ ef 40 16  ];
-	};
+	status = "okay";
+	pinctrl-0 = <&spi3_default>;
+	pinctrl-1 = <&spi3_sleep>;
+	pinctrl-names = "default", "sleep";
+	cs-gpios = <&mikrobus_header_1 2 GPIO_ACTIVE_LOW>, /* CLICK_CS1 */
+	           <&mikrobus_header_2 2 GPIO_ACTIVE_LOW>; /* CLICK_CS2 */
 };
 
 &pwm0 {
 	status = "okay";
-	pinctrl-0 = <&buzzer_pwm0_default>;
-	pinctrl-1 = <&buzzer_pwm0_sleep>;
+	pinctrl-0 = <&pwm0_default>;
+	pinctrl-1 = <&pwm0_sleep>;
 	pinctrl-names = "default", "sleep";
 };
 

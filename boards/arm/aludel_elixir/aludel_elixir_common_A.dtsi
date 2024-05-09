@@ -54,28 +54,4 @@
 	};
 };
 
-mikrobus_serial: &uart1 {};
-mikrobus_i2c: &i2c2 {};
-mikrobus_spi: &spi2 {};
 mikrobus_header: &mikrobus_header_1 {};
-
-&uart1 {
-	current-speed = <115200>;
-	pinctrl-0 = <&mikrobus_uart_default>;
-	pinctrl-1 = <&mikrobus_uart_sleep>;
-	pinctrl-names = "default", "sleep";
-};
-
-&spi2 {
-	cs-gpios = <&gpio0 30 GPIO_ACTIVE_LOW>, <&gpio0 0 GPIO_ACTIVE_LOW>;
-	pinctrl-0 = <&mikrobus_spi_default>;
-	pinctrl-1 = <&mikrobus_spi_sleep>;
-	pinctrl-names = "default", "sleep";
-};
-
-&spi3 {
-	cs-gpios = <&gpio0 7 GPIO_ACTIVE_LOW>;
-	pinctrl-0 = <&flash_spi_default>;
-	pinctrl-1 = <&flash_spi_sleep>;
-	pinctrl-names = "default", "sleep";
-};

@@ -10,6 +10,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Breaking Changes
+
+- The onboard SPI NOR flash (node label `w25q32jv`) has been removed from the Aludel Mini
+  (`aludel_mini_v1_sparkfun9160_ns`) & Aludel Elixir Rev A (`aludel_elixir_ns@A`) boards. On these
+  boards, the SPI flash and mikroBUS SPI interface do not share the same pins, so they must be
+  assigned to different peripheral numbers (0-3) in the nRF9160. This prevented the mikroBUS serial,
+  I2C, and SPI interfaces from being used simultaneously on these boards. Removing the SPI flash
+  node allows these mikroBUS peripherals to be enabled by default.
+
+  On these boards, the peripheral assignments have been updated as follows:
+  - `UART0`: USB-to-serial console
+  - `UART1`: mikroBUS serial
+  - `I2C2`: onboard I2C devices, QWIIC, and mikroBUS I2C
+  - `SPI3`: mikroBUS SPI
+
 ### Added
 
 - Add `pwm-buzzer0` alias for Aludel Elixir boards.
@@ -22,6 +37,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Fix Aludel Elixir board PWM buzzer DT definition.
+- Fix `cs-gpios` property for `spi3` node on Aludel Elixir boards.
 
 ### Changed
 

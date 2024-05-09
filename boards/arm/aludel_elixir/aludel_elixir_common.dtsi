@@ -30,9 +30,12 @@
 		};
 	};
 
-	buzzer: buzzer {
-		compatible = "pwm-buzzer";
-		pwms = <&pwm0 0 PWM_HZ(440) PWM_POLARITY_NORMAL>;
+	pwm-buzzers {
+		compatible = "pwm-leds";
+
+		pwm_buzzer0: pwm-buzzer-0 {
+			pwms = <&pwm0 0 PWM_HZ(440) PWM_POLARITY_NORMAL>;
+		};
 	};
 
 	reg_mikrobus_3v3: reg-mikrobus-3v3 {
@@ -56,6 +59,7 @@
 		watchdog0 = &wdt0;
 		click-i2c = &i2c2;
 		spi-flash0 = &w25q32jv;
+		pwm-buzzer0 = &pwm_buzzer0;
 	};
 };
 

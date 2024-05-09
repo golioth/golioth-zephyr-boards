@@ -10,6 +10,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add `pwm-buzzer0` alias for Aludel Elixir boards.
+
+### Fixed
+
+- Fix Aludel Elixir board PWM buzzer DT definition.
+
 ### Removed
 
 - Remove non-working nrf9160dk_nrf9160 overlay for arduino_uno_click shield.

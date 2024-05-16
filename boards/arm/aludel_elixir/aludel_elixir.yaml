@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 identifier: aludel_elixir
-name: Golioth-Aludel-Elixir-v1
+name: Golioth-Aludel-Elixir
 type: mcu
 arch: arm
 toolchain:

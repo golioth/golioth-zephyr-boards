@@ -43,6 +43,8 @@
 		regulator-name = "reg-mikrobus-3v3";
 		enable-gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;
 		regulator-boot-on;
+		startup-delay-us = <2000>;
+		off-on-delay-us = <2000>;
 	};
 
 	reg_mikrobus_5v: reg-mikrobus-5v {
@@ -50,6 +52,8 @@
 		regulator-name = "reg-mikrobus-5v";
 		enable-gpios = <&gpio0 4 GPIO_ACTIVE_HIGH>;
 		regulator-boot-on;
+		startup-delay-us = <2000>;
+		off-on-delay-us = <2000>;
 	};
 
 	aliases {

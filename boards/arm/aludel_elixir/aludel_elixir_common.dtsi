@@ -108,6 +108,10 @@ qwiic_i2c: &i2c2 {};
 		charge-voltage = <4200>;
 		status = "okay";
 	};
+
+	/* TODO: add a node for ATECC608A once it is supported in Zephyr
+	 * https://github.com/zephyrproject-rtos/zephyr/pull/69920
+	 */
 };
 
 &spi3 {

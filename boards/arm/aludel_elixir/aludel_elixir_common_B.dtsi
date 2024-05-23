@@ -72,6 +72,11 @@ mikrobus_header: &mikrobus_header_1 {};
 		reg = <0x18>;
 		irq-gpios = <&gpio0 29 GPIO_ACTIVE_HIGH>;
 	};
+
+	bme280: bme280@76 {
+		compatible = "bosch,bme280";
+		reg = <0x76>;
+	};
 };
 
 &spi3 {

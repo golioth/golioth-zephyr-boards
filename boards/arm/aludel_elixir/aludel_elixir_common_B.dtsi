@@ -7,6 +7,10 @@
 #include "aludel_elixir_common_B-pinctrl.dtsi"
 
 / {
+	aliases {
+		accel0 = &lis2dh;
+	};
+
 	mikrobus_header_1: mikrobus-connector-1 {
 		compatible = "mikro-bus";
 		#gpio-cells = <2>;

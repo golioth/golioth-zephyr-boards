@@ -17,10 +17,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add `rtc0` alias for Aludel Elixir boards.
 - Add `accel0` alias for Aludel Elixir Rev B board.
 - Add startup & on-off delays for Aludel Elixir regulators.
+- Add `mikrobus-serial`, `mikrobus-i2c`, and `mikrobus-spi` aliases.
 
 ### Fixed
 
 - Fix Aludel Elixir board PWM buzzer DT definition.
+
+### Changed
+
+- Deprecate `click-uart` and `click-i2c` aliases (use `mikrobus-*` aliases instead).
 
 ### Removed
 

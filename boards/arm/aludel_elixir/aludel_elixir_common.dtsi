@@ -60,6 +60,7 @@
 		click-i2c = &i2c2;
 		spi-flash0 = &w25q32jv;
 		pwm-buzzer0 = &pwm_buzzer0;
+		rtc0 = &pcf85063a;
 	};
 };
 
@@ -91,11 +92,6 @@ qwiic_i2c: &i2c2 {};
 	pinctrl-1 = <&mikrobus_i2c_sleep>;
 	pinctrl-names = "default", "sleep";
 
-	pcf85063a@51 {
-		compatible = "nxp,pcf85063a";
-		reg = <0x51>;
-	};
-
 	max17262@36 {
 		compatible = "maxim,max17262";
 		reg = <0x36>;
@@ -107,6 +103,12 @@ qwiic_i2c: &i2c2 {};
 		recovery-voltage = <3880>;
 		charge-voltage = <4200>;
 		status = "okay";
+	};
+
+	/* Needs external driver: https://github.com/circuitdojo/pcf85063a */
+	pcf85063a: pcf85063a@51 {
+		compatible = "nxp,pcf85063a";
+		reg = <0x51>;
 	};
 
 	/* TODO: add a node for ATECC608A once it is supported in Zephyr

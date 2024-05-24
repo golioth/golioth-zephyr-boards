@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add `pwm-buzzer0` alias for Aludel Elixir boards.
 - Add BME280 DT node to Aludel Elixir Rev B board.
+- Add `rtc0` alias for Aludel Elixir boards.
 
 ### Fixed
 

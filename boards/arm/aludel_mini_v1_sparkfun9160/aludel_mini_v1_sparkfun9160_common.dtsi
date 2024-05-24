@@ -47,6 +47,7 @@
 	aliases {
 		led0 = &blue_led;
 		bootloader-led0 = &blue_led;
+		golioth-led = &golioth_led;
 		pwm-led0 = &pwm_led0;
 		sw0 = &button0;
 		sw1 = &user_btn_n;
@@ -54,9 +55,12 @@
 		mcuboot-led0 = &blue_led;
 		watchdog0 = &wdt0;
 		accel0 = &lis2dh;
-		click-uart = &uart2;
-		click-i2c = &i2c1;
-		golioth-led = &golioth_led;
+		mikrobus-serial = &mikrobus_serial;
+		mikrobus-i2c = &mikrobus_i2c;
+		mikrobus-spi = &mikrobus_spi;
+		/* Deprecated click-* aliases (use mikrobus-* aliases instead) */
+		click-uart = &mikrobus_serial;
+		click-i2c = &mikrobus_i2c;
 	};
 
 	/* Used for accessing other pins */
@@ -85,7 +89,7 @@
 				<17 0 &gpio0 1 0>,	/* D10 (PWM1) */
 				<18 0 &gpio0 2 0>,	/* D11 (PWM1) */
 				<19 0 &gpio0 3 0>,	/* D12 (PWM0) */
-				<20 0 &gpio0 4 0>;	/* D13 (PWM1) */		
+				<20 0 &gpio0 4 0>;	/* D13 (PWM1) */
 	};
 
 	mikrobus_header_1: mikrobus-connector-1 {

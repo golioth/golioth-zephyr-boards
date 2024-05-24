@@ -61,10 +61,15 @@
 		sw1 = &user_btn_n;
 		mcuboot-button0 = &button0;
 		watchdog0 = &wdt0;
-		click-i2c = &i2c2;
 		spi-flash0 = &w25q32jv;
 		pwm-buzzer0 = &pwm_buzzer0;
 		rtc0 = &pcf85063a;
+		mikrobus-serial = &mikrobus_serial;
+		mikrobus-i2c = &mikrobus_i2c;
+		mikrobus-spi = &mikrobus_spi;
+		/* Deprecated click-* aliases (use mikrobus-* aliases instead) */
+		click-uart = &mikrobus_serial;
+		click-i2c = &mikrobus_i2c;
 	};
 };
 

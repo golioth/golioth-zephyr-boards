@@ -35,10 +35,10 @@
 
 	buttons {
 		compatible = "gpio-keys";
-		button0: button_0 {
+		mode_button: mode-button {
 			gpios = <&gpio0 12 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 		};
-		user_btn_n: user_btn_n {
+		user_button: user-button {
 			gpios = <&gpio0 3 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 		};
 	};
@@ -49,9 +49,9 @@
 		bootloader-led0 = &blue_led;
 		golioth-led = &golioth_led;
 		pwm-led0 = &pwm_led0;
-		sw0 = &button0;
-		sw1 = &user_btn_n;
-		mcuboot-button0 = &button0;
+		sw0 = &mode_button;
+		sw1 = &user_button;
+		mcuboot-button0 = &mode_button;
 		mcuboot-led0 = &blue_led;
 		watchdog0 = &wdt0;
 		accel0 = &lis2dh;

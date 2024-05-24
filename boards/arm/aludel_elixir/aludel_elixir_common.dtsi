@@ -21,11 +21,11 @@
 	buttons {
 		compatible = "gpio-keys";
 
-		button0: button_0 {
+		mode_button: mode-button {
 			gpios = <&gpio0 12 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 		};
 
-		user_btn_n: user_btn_n {
+		user_button: user-button {
 			gpios = <&gpio0 3 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 		};
 	};
@@ -57,9 +57,9 @@
 	};
 
 	aliases {
-		sw0 = &button0;
-		sw1 = &user_btn_n;
-		mcuboot-button0 = &button0;
+		sw0 = &mode_button;
+		sw1 = &user_button;
+		mcuboot-button0 = &mode_button;
 		watchdog0 = &wdt0;
 		spi-flash0 = &w25q32jv;
 		pwm-buzzer0 = &pwm_buzzer0;

@@ -20,7 +20,6 @@
 		compatible = "gpio-leds";
 		blue_led: led_0 {
 			gpios = <&gpio0 3 GPIO_ACTIVE_LOW>;
-			label = "Blue LED";
 		};
 		golioth_led: golioth_led {
 			gpios = <&gpio0 13 GPIO_ACTIVE_LOW>;
@@ -38,11 +37,9 @@
 		compatible = "gpio-keys";
 		button0: button_0 {
 			gpios = <&gpio0 12 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
-			label = "Switch 1";
 		};
 		user_btn_n: user_btn_n {
 			gpios = <&gpio0 3 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
-			label = "Aludel User Button";
 		};
 	};
 

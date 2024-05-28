@@ -177,9 +177,7 @@ mikrobus_header: &mikrobus_header_1 {};
 };
 
 &i2c2 {
-	compatible = "nordic,nrf-twim";
 	status = "okay";
-
 	pinctrl-0 = <&i2c2_default>;
 	pinctrl-1 = <&i2c2_sleep>;
 	pinctrl-names = "default", "sleep";
@@ -204,7 +202,6 @@ mikrobus_header: &mikrobus_header_1 {};
 };
 
 &spi3 {
-	compatible = "nordic,nrf-spim";
 	status = "okay";
 	cs-gpios = <&mikrobus_header_1 2 GPIO_ACTIVE_LOW>, /* CLICK_CS1 */
 	           <&mikrobus_header_2 2 GPIO_ACTIVE_LOW>; /* CLICK_CS2 */

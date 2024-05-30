@@ -62,7 +62,6 @@
 	pwm0_default: pwm0-default {
 		group1 {
 			psels = <NRF_PSEL(PWM_OUT0, 0, 20)>;
-			nordic,invert;
 		};
 	};
 

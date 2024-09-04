@@ -10,7 +10,7 @@
 #define GPIO0 DT_NODELABEL(gpio0)
 #define POWER_LATCH_PIN 31
 
-static int board_aludel_mini_v1_sparkfun9160_init(void)
+static int board_aludel_mini_nrf9160_init(void)
 {
 	/* Get handle of the GPIO device. */
 	const struct device *const gpio = DEVICE_DT_GET(GPIO0);
@@ -26,5 +26,5 @@ static int board_aludel_mini_v1_sparkfun9160_init(void)
 }
 
 /* needs to be done after GPIO driver init */
-SYS_INIT(board_aludel_mini_v1_sparkfun9160_init, POST_KERNEL,
+SYS_INIT(board_aludel_mini_nrf9160_init, POST_KERNEL,
 	 CONFIG_KERNEL_INIT_PRIORITY_DEFAULT);

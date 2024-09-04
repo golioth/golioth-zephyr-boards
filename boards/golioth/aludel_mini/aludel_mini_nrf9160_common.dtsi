@@ -4,7 +4,7 @@
  *
  * SPDX-License-Identifier: Apache-2.0
  */
-#include "aludel_mini_v1_sparkfun9160_common-pinctrl.dtsi"
+#include "aludel_mini_nrf9160_common-pinctrl.dtsi"
 
 / {
 	model = "Aludel Mini v1 Sparkfun9160";
@@ -275,4 +275,4 @@ mikrobus_header: &mikrobus_header_1 {};
 };
 
 /* Include partition configuration file */
-#include "aludel_mini_v1_sparkfun9160_partition_conf.dtsi"
+#include "aludel_mini_nrf9160_partition_conf.dtsi"

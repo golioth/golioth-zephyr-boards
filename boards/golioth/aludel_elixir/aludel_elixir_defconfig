@@ -1,10 +1,6 @@
 # Copyright (c) 2023 Golioth, Inc.
 # SPDX-License-Identifier: Apache-2.0
 
-CONFIG_SOC_SERIES_NRF91X=y
-CONFIG_SOC_NRF9160_SICA=y
-CONFIG_BOARD_ALUDEL_ELIXIR=y
-
 # Enable MPU
 CONFIG_ARM_MPU=y
 
@@ -26,4 +22,4 @@ CONFIG_UART_CONSOLE=y
 CONFIG_PINCTRL=y
 
 # Enable power regulator control
-CONFIG_REGULATOR=y
+#CONFIG_REGULATOR=y

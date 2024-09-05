@@ -8,6 +8,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2024-09-05
+
+### Breaking Changes
+
+- The regulator library is no longer enabled by default for the Aludel Elixir and should be enabled
+  in the board overlay file of applications that use it: `CONFIG_REGULATOR=y`.
+
+### Changed
+
+- Update Aludel Elixir to Zephyr Hardware Model v2
+- Update Aludel Mini to Zephyr Hardware Model v2
+
 ## [1.2.0] - 2024-06-12
 
 ### Breaking Changes

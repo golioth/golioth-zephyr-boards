@@ -20,6 +20,3 @@ CONFIG_UART_CONSOLE=y
 
 # Enable pin controller drivers
 CONFIG_PINCTRL=y
-
-# Enable power regulator control
-#CONFIG_REGULATOR=y

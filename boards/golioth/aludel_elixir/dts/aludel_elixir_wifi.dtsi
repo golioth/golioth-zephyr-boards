@@ -1,0 +1,19 @@
+/*
+ * Copyright (c) 2025 Golioth, Inc.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+&uart1 {
+	status = "okay";
+	current-speed = <115200>;
+	pinctrl-0 = <&esp_at_uart_default>;
+	pinctrl-1 = <&esp_at_uart_sleep>;
+	pinctrl-names = "default", "sleep";
+
+	esp_wifi: esp-wifi {
+		compatible = "espressif,esp-at";
+		power-gpios = <&gpio0 18 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+		status = "okay";
+	};
+};

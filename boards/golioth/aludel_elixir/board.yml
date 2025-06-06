@@ -1,5 +1,6 @@
 board:
   name: aludel_elixir
+  full_name: Golioth Aludel Elixir
   vendor: golioth
   revision:
     format: letter

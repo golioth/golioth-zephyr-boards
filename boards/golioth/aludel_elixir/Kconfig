@@ -1,0 +1,17 @@
+# Copyright (c) 2025 Golioth, Inc.
+# SPDX-License-Identifier: Apache-2.0
+
+if BOARD_ALUDEL_ELIXIR
+
+config ALUDEL_WIFI
+	bool "Enable WiFi via the onboard esp32c3"
+	default n
+	imply WIFI
+	imply WIFI_ESP_AT
+
+config ALUDEL_WIFI_SHELL
+	bool "Enable WiFi shell for the onboard esp32c3"
+	default n
+	imply NET_L2_WIFI_SHELL
+
+endif # BOARD_ALUDEL_ELIXIR

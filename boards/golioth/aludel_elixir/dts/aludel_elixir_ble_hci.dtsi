@@ -4,6 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+/ {
+	chosen {
+		zephyr,bt-hci = &bt_hci_uart;
+	};
+};
+
 &uart1 {
 	status = "okay";
 	current-speed = <115200>;
@@ -11,9 +17,8 @@
 	pinctrl-1 = <&esp_uart_sleep>;
 	pinctrl-names = "default", "sleep";
 
-	esp_wifi: esp-wifi {
-		compatible = "espressif,esp-at";
-		power-gpios = <&gpio0 18 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+	bt_hci_uart: bt_hci_uart {
+		compatible = "zephyr,bt-hci-uart";
 		status = "okay";
 	};
 };

@@ -72,14 +72,14 @@
 		};
 	};
 
-	esp_at_uart_default: esp-at-uart-default {
+	esp_uart_default: esp-at-uart-default {
 		group1 {
 			psels = <NRF_PSEL(UART_TX, 0, 25)>,
 				<NRF_PSEL(UART_RX, 0, 31)>;
 		};
 	};
 
-	esp_at_uart_sleep: esp-at-uart-sleep {
+	esp_uart_sleep: esp-at-uart-sleep {
 		group1 {
 			psels = <NRF_PSEL(UART_TX, 0, 25)>,
 				<NRF_PSEL(UART_RX, 0, 31)>;

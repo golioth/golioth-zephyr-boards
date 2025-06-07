@@ -7,8 +7,8 @@
 &uart1 {
 	status = "okay";
 	current-speed = <115200>;
-	pinctrl-0 = <&esp_at_uart_default>;
-	pinctrl-1 = <&esp_at_uart_sleep>;
+	pinctrl-0 = <&esp_uart_default>;
+	pinctrl-1 = <&esp_uart_sleep>;
 	pinctrl-names = "default", "sleep";
 
 	esp_wifi: esp-wifi {

@@ -12,6 +12,9 @@ The Aludel Elixir has an ESP32-C3 Mini module that may be used as a Bluetooth HC
 this featured, the Espressif Bluetooth HCI Sample application must first be flashed onto the ESP32
 module. A binary built for the Aludel Elixir is included in this repository for your convenience.
 
+> [!NOTE]
+> Jumper pins 2-3 of J5 to power the ESP32. This will illuminate the 3v3 QWIIC LED.
+
 1. Connect the GND, TX, & RX pins of a USB-to-serial programmer to the J17 header on the Elixir Rev
    B as shown in the attached image.
 
@@ -80,6 +83,9 @@ Check the section below on Using Bluetooth HCI to configure the Elixir to use ES
 
 The Aludel Elixir has an ESP32-C3 Mini module that may be used to add WiFi functionality to the
 board. To use this featured, the Espressif AT Binary must first be flashed onto the ESP32 module.
+
+> [!NOTE]
+> Jumper pins 2-3 of J5 to power the ESP32. This will illuminate the 3v3 QWIIC LED.
 
 1. Connect the GND, TX, & RX pins of a USB-to-serial programmer to the J17 header on the Elixir Rev
    B as shown in the attached image.

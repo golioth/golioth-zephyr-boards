@@ -2,8 +2,12 @@
 # Copyright (c) 2023 Golioth, Inc.
 # SPDX-License-Identifier: Apache-2.0
 
-if(CONFIG_BOARD_ALUDEL_ELIXIR_NS)
+if(CONFIG_BOARD_ALUDEL_ELIXIR_NRF9160_NS)
   set(TFM_PUBLIC_KEY_FORMAT "full")
+else()
+  message(WARNING "WARNING: Building for the secure version of Aludel Elixir is uncommon. Ensure \
+                   you didn't mean to use `aludel_elixir/nrf9160/ns` for the board name.
+  ")
 endif()
 
 if(CONFIG_TFM_FLASH_MERGED_BINARY)
